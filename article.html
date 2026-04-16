@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- SEO: Bytt ut tittel og beskrivelse for hver artikkel -->
+  <title>Hvordan bruke Vipps – enkel guide for nybegynnere | Enkelt for deg</title>
+  <meta name="description" content="Lær hvordan du bruker Vipps enkelt og trygt. Steg-for-steg guide for nybegynnere og eldre – skrevet på en enkel måte uten vanskelige ord." />
+  <!-- Bytt ut URL og bilde under -->
+  <meta property="og:title" content="Hvordan bruke Vipps – enkel guide" />
+  <meta property="og:description" content="Enkel Vipps-guide for nybegynnere og eldre." />
+  <meta property="og:type" content="article" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── ARTIKKEL – SPESIFIKKE STILER ── */
+
+    .artikkel-topp {
+      background: linear-gradient(160deg, var(--blaa-lys) 0%, #ffffff 70%);
+      padding: 64px 24px 56px;
+    }
+
+    .artikkel-topp__innhold {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .artikkel-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .artikkel-meta__kategori {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--blaa);
+      color: white;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      padding: 5px 14px;
+      border-radius: 999px;
+    }
+
+    .artikkel-meta__dato,
+    .artikkel-meta__lesetid {
+      font-size: 0.9rem;
+      color: var(--graa);
+      font-weight: 600;
+    }
+
+    .artikkel-topp h1 { margin-bottom: 20px; font-size: clamp(1.8rem, 4vw, 2.8rem); }
+
+    .artikkel-topp__ingress {
+      font-size: 1.15rem;
+      color: var(--graa);
+      line-height: 1.75;
+      max-width: 660px;
+      margin-bottom: 28px;
+    }
+
+    .forfatter-boks {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      background: white;
+      border: 2px solid var(--kant);
+      border-radius: 12px;
+      display: inline-flex;
+    }
+
+    .forfatter-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--blaa);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+
+    .forfatter-boks strong { display: block; font-weight: 700; font-size: 0.95rem; }
+    .forfatter-boks span { font-size: 0.85rem; color: var(--graa); }
+
+    /* INNHOLDSFORTEGNELSE */
+    .artikkel-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 24px;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .innholdsfortegnelse {
+      position: sticky;
+      top: 88px;
+      background: var(--lys-graa);
+      border: 2px solid var(--kant);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+    }
+
+    .innholdsfortegnelse h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--graa);
+      margin-bottom: 16px;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .innholdsfortegnelse ol {
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .innholdsfortegnelse a {
+      color: var(--tekst);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.2s;
+      line-height: 1.4;
+    }
+
+    .innholdsfortegnelse a:hover { color: var(--blaa); }
+
+    /* ARTIKKEL INNHOLD */
+    .artikkel-innhold h2 {
+      font-size: 1.6rem;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      padding-top: 16px;
+      border-top: 2px solid var(--kant);
+      scroll-margin-top: 90px;
+    }
+
+    .artikkel-innhold h2:first-child { margin-top: 0; border-top: none; padding-top: 0; }
+
+    .artikkel-innhold h3 {
+      font-size: 1.2rem;
+      margin-top: 28px;
+      margin-bottom: 12px;
+      scroll-margin-top: 90px;
+    }
+
+    .artikkel-innhold p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--tekst);
+      margin-bottom: 20px;
+    }
+
+    /* Steg-boks */
+    .steg-boks {
+      background: var(--lys-graa);
+      border: 2px solid var(--kant);
+      border-radius: var(--radius);
+      padding: 28px 28px 8px;
+      margin: 32px 0;
+    }
+
+    .steg-boks h3 {
+      font-size: 1rem;
+      color: var(--graa);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 20px;
+      margin-top: 0;
+    }
+
+    .steg-liste { list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px; }
+
+    .steg-liste li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .steg-nr {
+      width: 32px; height: 32px;
+      background: var(--blaa);
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .steg-liste strong { display: block; font-weight: 700; color: var(--mork); margin-bottom: 2px; }
+    .steg-liste span { color: var(--graa); font-size: 0.95rem; }
+
+    /* Info-boks */
+    .info-boks {
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 28px 0;
+      border-left: 5px solid;
+      display: flex;
+      gap: 14px;
+    }
+
+    .info-boks__ikon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+    .info-boks p { margin: 0; font-size: 1rem; }
+
+    .info-boks.tips { background: var(--blaa-lys); border-color: var(--blaa); }
+    .info-boks.tips p { color: var(--blaa-mork); }
+
+    .info-boks.advarsel { background: #FEF4E3; border-color: var(--accent); }
+    .info-boks.advarsel p { color: #7a4d00; }
+
+    .info-boks.viktig { background: #FEE8E8; border-color: #e05353; }
+    .info-boks.viktig p { color: #8B1A1A; }
+
+    /* Del-knapper */
+    .del-seksjon {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 2px solid var(--kant);
+    }
+
+    .del-seksjon h3 { font-size: 1rem; color: var(--graa); margin-bottom: 16px; font-family: 'Nunito', sans-serif; }
+
+    .del-knapper { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .del-knapp {
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 2px solid var(--kant);
+      background: white;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--tekst);
+    }
+
+    .del-knapp:hover { border-color: var(--blaa); color: var(--blaa); }
+
+    /* NAVIGASJON mellom artikler */
+    .artikkel-navigasjon {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .artikkel-nav-kort {
+      background: white;
+      border: 2px solid var(--kant);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      transition: all 0.2s;
+      display: block;
+    }
+
+    .artikkel-nav-kort:hover { border-color: var(--blaa); transform: translateY(-2px); }
+
+    .artikkel-nav-kort span {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--graa);
+      margin-bottom: 6px;
+    }
+
+    .artikkel-nav-kort strong { font-size: 1rem; color: var(--mork); display: block; line-height: 1.4; }
+
+    .artikkel-nav-kort.neste { text-align: right; }
+
+    /* CTA */
+    .artikkel-cta {
+      background: var(--blaa);
+      padding: 64px 24px;
+      text-align: center;
+    }
+
+    .artikkel-cta h2 { color: white; margin-bottom: 12px; }
+    .artikkel-cta p { color: rgba(255,255,255,0.8); margin-bottom: 28px; }
+
+    /* RESPONSIV */
+    @media (max-width: 900px) {
+      .artikkel-layout { grid-template-columns: 1fr; }
+      .innholdsfortegnelse { position: static; }
+      .artikkel-navigasjon { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGASJON -->
+  <nav class="nav" role="navigation" aria-label="Hovedmeny">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span aria-hidden="true">E</span>
+        Enkelt for deg
+      </a>
+      <ul class="nav__lenker">
+        <li><a href="index.html">Hjem</a></li>
+        <li><a href="about.html">Om meg</a></li>
+        <li><a href="blog.html">Artikler</a></li>
+        <li><a href="index.html#kontakt" class="nav__kontakt-btn">Ta kontakt</a></li>
+      </ul>
+      <button class="nav__hamburger" aria-label="Åpne meny" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobil" role="dialog" aria-label="Mobilmeny">
+      <ul>
+        <li><a href="index.html">🏠 Hjem</a></li>
+        <li><a href="about.html">👋 Om meg</a></li>
+        <li><a href="blog.html">📝 Artikler</a></li>
+        <li><a href="index.html#kontakt">📞 Ta kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ARTIKKEL TOPP -->
+    <header class="artikkel-topp">
+      <div class="artikkel-topp__innhold fade-inn">
+
+        <!-- Brødsmule-navigasjon -->
+        <nav aria-label="Brødsmule" style="margin-bottom:20px">
+          <a href="blog.html" style="color:var(--blaa);font-weight:700;font-size:0.9rem">← Tilbake til artikler</a>
+        </nav>
+
+        <div class="artikkel-meta">
+          <span class="artikkel-meta__kategori">📱 Mobil</span>
+          <span class="artikkel-meta__dato">15. januar 2025</span>
+          <span class="artikkel-meta__lesetid">⏱ 5 min lesetid</span>
+        </div>
+
+        <!-- TITTEL: Bytt ut med faktisk artikkeltittel -->
+        <h1>Hvordan bruke Vipps – enkel guide for nybegynnere</h1>
+
+        <!-- INGRESS: Bytt ut med faktisk ingress -->
+        <p class="artikkel-topp__ingress">
+          Vipps er en app som gjør det enkelt å sende og motta penger. I denne guiden forklarer vi
+          alt steg for steg – helt fra du laster ned appen til du sender din første betaling.
+        </p>
+
+        <div class="forfatter-boks">
+          <div class="forfatter-avatar" aria-hidden="true">👨‍💻</div>
+          <div>
+            <strong>Enkelt for deg</strong>
+            <span>Digital hjelp i Bergen</span>
+          </div>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- ARTIKKEL LAYOUT -->
+    <div class="artikkel-layout">
+
+      <!-- HOVEDINNHOLD -->
+      <article class="artikkel-innhold fade-inn">
+
+        <!-- ========================
+             ARTIKKELINNHOLD START
+             Bytt ut alt under med
+             faktisk innhold for
+             hver nye artikkel.
+             ======================== -->
+
+        <h2 id="hva-er-vipps">Hva er Vipps?</h2>
+        <p>
+          Vipps er en norsk app du laster ned på mobiltelefonen din. Med Vipps kan du sende penger til venner og familie, betale i butikker, og motta penger fra andre. Alt skjer raskt og trygt – rett fra telefonen din.
+        </p>
+        <p>
+          Vipps brukes av millioner av nordmenn og er godkjent av norske banker. Du trenger ikke bekymre deg for sikkerheten – den er meget god.
+        </p>
+
+        <div class="info-boks tips">
+          <span class="info-boks__ikon">💡</span>
+          <p><strong>Tips:</strong> Vipps er gratis å laste ned og gratis å sende penger til privatpersoner. Du betaler ingenting ekstra.</p>
+        </div>
+
+        <h2 id="hva-trenger-du">Hva trenger du for å komme i gang?</h2>
+        <p>
+          Før du kan bruke Vipps, trenger du noen ting klart. Dette er enkelt, og du trenger det bare én gang:
+        </p>
+        <ul style="padding-left:24px;margin-bottom:20px;display:flex;flex-direction:column;gap:8px;color:var(--tekst)">
+          <li><strong>📱 En smarttelefon</strong> – iPhone eller Android fungerer begge.</li>
+          <li><strong>📲 God mobil- eller WiFi-tilkobling</strong> – For å laste ned appen.</li>
+          <li><strong>🔐 BankID</strong> – Du trenger BankID for å registrere deg.</li>
+          <li><strong>🏦 En norsk bankkonto</strong> – For å sende og motta penger.</li>
+        </ul>
+
+        <h2 id="kom-i-gang">Slik kommer du i gang – steg for steg</h2>
+        <p>
+          Følg disse stegene nøye, og du er klar til å bruke Vipps på noen få minutter:
+        </p>
+
+        <div class="steg-boks">
+          <h3>📋 Steg for steg</h3>
+          <ol class="steg-liste">
+            <li>
+              <span class="steg-nr">1</span>
+              <div>
+                <strong>Last ned Vipps-appen</strong>
+                <span>Gå til App Store (iPhone) eller Google Play (Android). Søk etter «Vipps» og trykk «Installer». Det er gratis.</span>
+              </div>
+            </li>
+            <li>
+              <span class="steg-nr">2</span>
+              <div>
+                <strong>Åpne appen og trykk «Registrer deg»</strong>
+                <span>Skriv inn mobilnummeret ditt. Du mottar en SMS med en kode – skriv inn denne koden.</span>
+              </div>
+            </li>
+            <li>
+              <span class="steg-nr">3</span>
+              <div>
+                <strong>Logg inn med BankID</strong>
+                <span>Trykk «Bruk BankID» og følg instruksjonene. Dette bekrefter hvem du er.</span>
+              </div>
+            </li>
+            <li>
+              <span class="steg-nr">4</span>
+              <div>
+                <strong>Koble til bankkontoen din</strong>
+                <span>Velg din bank og logg inn. Vipps kobler seg automatisk til kontoen. Nå er du klar!</span>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="info-boks advarsel">
+          <span class="info-boks__ikon">⚠️</span>
+          <p><strong>Husk:</strong> Vipps vil aldri ringe deg og be om PIN-koden din. Hvis noen ringer og utgir seg for å være Vipps – legg på med en gang.</p>
+        </div>
+
+        <h2 id="sende-penger">Slik sender du penger</h2>
+        <p>
+          Når du er registrert, er det enkelt å sende penger. Her er hvordan du gjør det:
+        </p>
+        <p>
+          Åpne Vipps og søk opp personen du vil sende til. Skriv inn beløpet, legg til en melding om du vil, og trykk «Betal». Pengene er fremme på sekunder!
+        </p>
+
+        <h3 id="motta-penger">Slik mottar du penger</h3>
+        <p>
+          Du trenger ikke gjøre noe for å motta penger. Når noen sender til deg, får du en varsel på telefonen. Pengene legger seg automatisk på Vipps-kontoen din, og overføres til bankkontoen din innen 1–2 dager.
+        </p>
+
+        <div class="info-boks tips">
+          <span class="info-boks__ikon">✅</span>
+          <p>Du kan alltid se historikken i Vipps for å se hvem som har sendt deg penger og hva du har betalt.</p>
+        </div>
+
+        <!-- ========================
+             ARTIKKELINNHOLD SLUTT
+             ======================== -->
+
+        <!-- DEL-KNAPPER -->
+        <div class="del-seksjon">
+          <h3>Del denne artikkelen</h3>
+          <div class="del-knapper">
+            <button class="del-knapp" onclick="navigator.clipboard.writeText(window.location.href)">📋 Kopier lenke</button>
+            <a href="mailto:?subject=Enkel Vipps-guide&body=Sjekk denne guiden: " class="del-knapp">📧 Del på e-post</a>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- INNHOLDSFORTEGNELSE (sidebar) -->
+      <aside>
+        <nav class="innholdsfortegnelse" aria-label="Innholdsfortegnelse">
+          <h3>I denne artikkelen</h3>
+          <ol>
+            <li><a href="#hva-er-vipps">Hva er Vipps?</a></li>
+            <li><a href="#hva-trenger-du">Hva trenger du?</a></li>
+            <li><a href="#kom-i-gang">Kom i gang</a></li>
+            <li><a href="#sende-penger">Send penger</a></li>
+            <li><a href="#motta-penger">Motta penger</a></li>
+          </ol>
+        </nav>
+
+        <!-- Kontakt-kort i sidebar -->
+        <div style="margin-top:24px;background:var(--blaa-lys);border:2px solid var(--blaa-mid);border-radius:var(--radius);padding:24px;text-align:center">
+          <div style="font-size:2rem;margin-bottom:12px">🤝</div>
+          <h3 style="font-size:1rem;margin-bottom:8px">Trenger du hjelp?</h3>
+          <p style="font-size:0.9rem;color:var(--graa);margin-bottom:16px">Jeg kan hjelpe deg med Vipps hjemme hos deg i Bergen.</p>
+          <a href="index.html#kontakt" class="btn btn--primer btn--liten" style="width:100%;display:block;text-align:center">Ta kontakt</a>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- ARTIKKEL-NAVIGASJON -->
+    <nav class="artikkel-navigasjon" aria-label="Navigasjon mellom artikler">
+      <a href="blog.html" class="artikkel-nav-kort">
+        <span>← Forrige</span>
+        <strong>Tilbake til alle artikler</strong>
+      </a>
+      <a href="article.html" class="artikkel-nav-kort neste">
+        <span>Neste →</span>
+        <strong>BankID – hva er det og hvordan bruker du det trygt?</strong>
+      </a>
+    </nav>
+
+    <!-- KONTAKT CTA -->
+    <section class="artikkel-cta" aria-labelledby="cta-tittel">
+      <div class="fade-inn">
+        <h2 id="cta-tittel">Vil du ha hjelp hjemme hos deg?</h2>
+        <p>Jeg kan komme hjem til deg i Bergen og hjelpe deg med Vipps – steg for steg.</p>
+        <a href="index.html#kontakt" class="btn" style="background:white;color:var(--blaa-mork)">Book hjemmebesøk</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BUNNTEKST -->
+  <footer>
+    <div class="footer__inner">
+      <div class="footer__topp">
+        <div>
+          <div class="footer__logo">Enkelt for deg</div>
+          <p>Digital hjelp for privatpersoner og bedrifter i Bergen. Enkel, vennlig og alltid forståelig.</p>
+        </div>
+        <div class="footer__kolonne">
+          <h4>Sider</h4>
+          <ul>
+            <li><a href="index.html">Hjem</a></li>
+            <li><a href="about.html">Om meg</a></li>
+            <li><a href="blog.html">Artikler</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer__kolonne">
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="tel:+47XXXXXXXX">+47 XXX XX XXX</a></li>
+            <li><a href="mailto:hei@enkeltfordeg.no">hei@enkeltfordeg.no</a></li>
+            <li><span>Bergen, Norge</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bunn">
+        <span>© 2025 Enkelt for deg – Bergen</span>
+        <span>Laget med ❤️ i Bergen</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

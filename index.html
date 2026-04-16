@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enkelt for deg – Digital hjelp i Bergen</title>
+  <meta name="description" content="Trenger du hjelp med mobil, BankID eller apper? Eller vil du ha en enkel nettside for bedriften din? Enkelt for deg hjelper deg – i Bergen." />
+  <meta name="keywords" content="digital hjelp Bergen, hjelp med mobil, BankID hjelp, nettsider Bergen, hjelp til eldre teknologi" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── FORSIDE-SPESIFIKKE STILER ── */
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(160deg, var(--blaa-lys) 0%, #ffffff 60%);
+      padding: 100px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, var(--blaa-mid) 0%, transparent 70%);
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .hero__innhold { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+
+    .hero__merke {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blaa);
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 8px 20px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      margin-bottom: 24px;
+      color: var(--mork);
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--blaa);
+    }
+
+    .hero__ingress {
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: var(--graa);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.75;
+    }
+
+    .hero__knapper {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero__statistikk {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin-top: 64px;
+      flex-wrap: wrap;
+    }
+
+    .hero__statistikk-element { text-align: center; }
+    .hero__statistikk-element strong { display: block; font-size: 2rem; font-weight: 800; color: var(--blaa-mork); font-family: 'Lora', serif; }
+    .hero__statistikk-element span { font-size: 0.9rem; color: var(--graa); font-weight: 600; }
+
+    /* TJENESTER */
+    .tjenester { background: var(--lys-graa); }
+
+    .tjenester__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .tjeneste-seksjon {
+      background: var(--hvit);
+      border-radius: var(--radius-stor);
+      border: 2px solid var(--kant);
+      padding: 40px 36px;
+      box-shadow: var(--skygge);
+    }
+
+    .tjeneste-seksjon__header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .tjeneste-seksjon__ikon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .privat .tjeneste-seksjon__ikon { background: var(--blaa-lys); }
+    .bedrift .tjeneste-seksjon__ikon { background: var(--accent-lys); }
+
+    .tjeneste-seksjon__header h3 { font-size: 1.4rem; margin-bottom: 4px; }
+    .tjeneste-seksjon__header p { color: var(--graa); font-size: 0.9rem; margin: 0; }
+
+    .tjeneste-liste { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+
+    .tjeneste-liste li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px;
+      background: var(--lys-graa);
+      border-radius: 12px;
+      border: 1.5px solid var(--kant);
+    }
+
+    .tjeneste-liste__ikon {
+      width: 36px; height: 36px;
+      background: var(--blaa-lys);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .bedrift .tjeneste-liste__ikon { background: var(--accent-lys); }
+
+    .tjeneste-liste strong { display: block; font-weight: 700; color: var(--mork); font-size: 1rem; }
+    .tjeneste-liste span { font-size: 0.9rem; color: var(--graa); }
+
+    /* PRISER */
+    .priser__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .pris-kort {
+      background: var(--hvit);
+      border: 2px solid var(--kant);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: var(--skygge);
+      transition: all 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pris-kort:hover {
+      border-color: var(--blaa);
+      transform: translateY(-4px);
+      box-shadow: var(--skygge-hover);
+    }
+
+    .pris-kort--populaer {
+      border-color: var(--blaa);
+      background: var(--blaa);
+      color: white;
+    }
+
+    .populaer-merke {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--mork);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .pris-kort__ikon { font-size: 2.2rem; margin-bottom: 16px; }
+
+    .pris-kort h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .pris-kort--populaer h3,
+    .pris-kort--populaer .pris-kort__beskriv,
+    .pris-kort--populaer .pris-beloep { color: white; }
+
+    .pris-beloep {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--blaa-mork);
+      margin: 16px 0 8px;
+    }
+
+    .pris-beloep sup { font-size: 1rem; }
+
+    .pris-kort__beskriv {
+      color: var(--graa);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    /* SLIK VIRKER DET */
+    .steg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+
+    .steg-grid::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: calc(16.67% + 28px);
+      right: calc(16.67% + 28px);
+      height: 2px;
+      background: repeating-linear-gradient(90deg, var(--blaa-mid) 0, var(--blaa-mid) 12px, transparent 12px, transparent 24px);
+    }
+
+    .steg-kort { text-align: center; }
+
+    .steg-nummer {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: var(--blaa);
+      color: white;
+      font-family: 'Lora', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      box-shadow: 0 4px 20px rgba(26,107,74,0.35);
+    }
+
+    .steg-kort h3 { margin-bottom: 12px; }
+    .steg-kort p { color: var(--graa); }
+
+    /* FAMILIE */
+    .familie {
+      background: var(--blaa);
+      color: white;
+    }
+
+    .familie__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .familie h2 { color: white; margin-bottom: 20px; }
+    .familie p { color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 16px; }
+
+    .familie__liste { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 28px 0 36px; }
+
+    .familie__liste li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+    }
+
+    .familie__liste li::before {
+      content: '✓';
+      width: 28px; height: 28px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .familie__visuell {
+      background: rgba(255,255,255,0.1);
+      border-radius: var(--radius-stor);
+      padding: 48px 40px;
+      border: 2px solid rgba(255,255,255,0.2);
+      text-align: center;
+    }
+
+    .familie__visuell .stor-ikon { font-size: 5rem; margin-bottom: 24px; display: block; }
+
+    .familie__visuell p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      font-style: italic;
+      font-family: 'Lora', serif;
+    }
+
+    /* KONTAKT */
+    .kontakt { background: var(--lys-graa); }
+
+    .kontakt__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .kontakt__info h2 { margin-bottom: 20px; }
+    .kontakt__info p { color: var(--graa); margin-bottom: 32px; }
+
+    .kontakt__detaljer { display: flex; flex-direction: column; gap: 16px; }
+
+    .kontakt__detalj {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      background: var(--hvit);
+      border-radius: 12px;
+      border: 2px solid var(--kant);
+    }
+
+    .kontakt__detalj-ikon {
+      width: 44px; height: 44px;
+      background: var(--blaa-lys);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .kontakt__detalj strong { display: block; font-size: 0.85rem; color: var(--graa); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .kontakt__detalj span { font-size: 1.05rem; font-weight: 700; color: var(--mork); }
+
+    /* Skjema */
+    .kontakt__skjema-boks {
+      background: var(--hvit);
+      border: 2px solid var(--kant);
+      border-radius: var(--radius-stor);
+      padding: 44px 40px;
+      box-shadow: var(--skygge);
+    }
+
+    .kontakt__skjema-boks h3 { margin-bottom: 28px; font-size: 1.4rem; }
+
+    .skjema-gruppe { margin-bottom: 20px; }
+
+    .skjema-gruppe label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--mork);
+      margin-bottom: 8px;
+    }
+
+    .skjema-gruppe input,
+    .skjema-gruppe textarea,
+    .skjema-gruppe select {
+      width: 100%;
+      padding: 14px 18px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      color: var(--mork);
+      background: var(--lys-graa);
+      border: 2px solid var(--kant);
+      border-radius: 10px;
+      transition: border-color 0.2s, background 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .skjema-gruppe input:focus,
+    .skjema-gruppe textarea:focus,
+    .skjema-gruppe select:focus {
+      border-color: var(--blaa);
+      background: var(--hvit);
+    }
+
+    .skjema-gruppe textarea { resize: vertical; min-height: 120px; }
+
+    /* RESPONSIV FORSIDE */
+    @media (max-width: 900px) {
+      .tjenester__grid { grid-template-columns: 1fr; }
+      .priser__grid { grid-template-columns: 1fr 1fr; }
+      .familie__grid { grid-template-columns: 1fr; gap: 40px; }
+      .kontakt__grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .priser__grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .steg-grid { grid-template-columns: 1fr; }
+      .steg-grid::before { display: none; }
+      .hero__statistikk { gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGASJON -->
+  <nav class="nav" role="navigation" aria-label="Hovedmeny">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span aria-hidden="true">E</span>
+        Enkelt for deg
+      </a>
+      <ul class="nav__lenker">
+        <li><a href="index.html">Hjem</a></li>
+        <li><a href="about.html">Om meg</a></li>
+        <li><a href="blog.html">Artikler</a></li>
+        <li><a href="#kontakt" class="nav__kontakt-btn">Ta kontakt</a></li>
+      </ul>
+      <button class="nav__hamburger" aria-label="Åpne meny" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobil" role="dialog" aria-label="Mobilmeny">
+      <ul>
+        <li><a href="index.html">🏠 Hjem</a></li>
+        <li><a href="about.html">👋 Om meg</a></li>
+        <li><a href="blog.html">📝 Artikler</a></li>
+        <li><a href="#kontakt">📞 Ta kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-tittel">
+      <div class="hero__innhold">
+        <div class="hero__merke">📍 Bergen, Norge</div>
+        <h1 id="hero-tittel">
+          Digital hjelp som er<br><em>enkelt for deg</em>
+        </h1>
+        <p class="hero__ingress">
+          Sliter du med mobilen, BankID eller nye apper? Eller vil du ha en nettside for bedriften din?
+          Jeg hjelper deg – steg for steg, uten vanskelige ord.
+        </p>
+        <div class="hero__knapper">
+          <a href="#kontakt" class="btn btn--primer">Ta kontakt i dag</a>
+          <a href="about.html" class="btn btn--sekundar">Les om meg</a>
+        </div>
+
+        <div class="hero__statistikk">
+          <div class="hero__statistikk-element fade-inn fade-inn-forsinkelse-1">
+            <strong>Bergen</strong>
+            <span>Lokal hjelp</span>
+          </div>
+          <div class="hero__statistikk-element fade-inn fade-inn-forsinkelse-2">
+            <strong>999 kr</strong>
+            <span>Fra kun</span>
+          </div>
+          <div class="hero__statistikk-element fade-inn fade-inn-forsinkelse-3">
+            <strong>100%</strong>
+            <span>Enkelt forklart</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TJENESTER -->
+    <section class="tjenester" id="tjenester" aria-labelledby="tjenester-tittel">
+      <div class="container">
+        <div class="seksjon-tittel fade-inn">
+          <span class="merkelapp">Hva jeg hjelper med</span>
+          <h2 id="tjenester-tittel">For alle – privatperson eller bedrift</h2>
+          <p>Enten du er pensjonist som vil lære deg iPhone, eller en bedrift som trenger nettside – jeg hjelper deg.</p>
+        </div>
+
+        <div class="tjenester__grid">
+
+          <!-- PRIVATPERSON -->
+          <div class="tjeneste-seksjon privat fade-inn fade-inn-forsinkelse-1">
+            <div class="tjeneste-seksjon__header">
+              <div class="tjeneste-seksjon__ikon">👴</div>
+              <div>
+                <h3>For privatpersoner</h3>
+                <p>Spesielt for eldre og nybegynnere</p>
+              </div>
+            </div>
+            <ul class="tjeneste-liste" aria-label="Tjenester for privatpersoner">
+              <li>
+                <div class="tjeneste-liste__ikon">📱</div>
+                <div>
+                  <strong>Hjelp med mobil</strong>
+                  <span>Lær å bruke iPhone eller Android på en enkel måte</span>
+                </div>
+              </li>
+              <li>
+                <div class="tjeneste-liste__ikon">🔐</div>
+                <div>
+                  <strong>BankID og nettbank</strong>
+                  <span>Jeg hjelper deg å komme i gang og bruke det trygt</span>
+                </div>
+              </li>
+              <li>
+                <div class="tjeneste-liste__ikon">💜</div>
+                <div>
+                  <strong>Apper som Vipps og Ruter</strong>
+                  <span>Vi går gjennom det du trenger, i ditt eget tempo</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- BEDRIFT -->
+          <div class="tjeneste-seksjon bedrift fade-inn fade-inn-forsinkelse-2">
+            <div class="tjeneste-seksjon__header">
+              <div class="tjeneste-seksjon__ikon">🏪</div>
+              <div>
+                <h3>For bedrifter</h3>
+                <p>Enkle løsninger som gir resultater</p>
+              </div>
+            </div>
+            <ul class="tjeneste-liste" aria-label="Tjenester for bedrifter">
+              <li>
+                <div class="tjeneste-liste__ikon">🌐</div>
+                <div>
+                  <strong>Nettside for bedriften</strong>
+                  <span>Rask, pen og profesjonell nettside – fra 3 000 kr</span>
+                </div>
+              </li>
+              <li>
+                <div class="tjeneste-liste__ikon">📈</div>
+                <div>
+                  <strong>Flere kunder på nett</strong>
+                  <span>Jeg hjelper deg å bli funnet av de rette kundene</span>
+                </div>
+              </li>
+              <li>
+                <div class="tjeneste-liste__ikon">✅</div>
+                <div>
+                  <strong>Enkle digitale løsninger</strong>
+                  <span>Ingen unødvendig kompleksitet – bare det som virker</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PRISER -->
+    <section id="priser" aria-labelledby="priser-tittel">
+      <div class="container">
+        <div class="seksjon-tittel fade-inn">
+          <span class="merkelapp">Priser</span>
+          <h2 id="priser-tittel">Tydelige priser – ingen overraskelser</h2>
+          <p>Du vet hva du betaler for, og jeg gir alltid beskjed på forhånd.</p>
+        </div>
+
+        <div class="priser__grid">
+
+          <div class="pris-kort fade-inn fade-inn-forsinkelse-1">
+            <div class="pris-kort__ikon">📱</div>
+            <h3>Kom i gang med mobil</h3>
+            <div class="pris-beloep"><sup>kr </sup>999</div>
+            <p class="pris-kort__beskriv">Én time hjemme hos deg. Vi tar mobilen fra start til at du mestrer det selv.</p>
+            <a href="#kontakt" class="btn btn--sekundar btn--liten">Book time</a>
+          </div>
+
+          <div class="pris-kort pris-kort--populaer fade-inn fade-inn-forsinkelse-2">
+            <span class="populaer-merke">⭐ Mest populær</span>
+            <div class="pris-kort__ikon">🎯</div>
+            <h3>Full digital hjelp</h3>
+            <div class="pris-beloep"><sup>kr </sup>1499</div>
+            <p class="pris-kort__beskriv">To timer hjemme hos deg. BankID, Vipps, e-post og apper – alt på én gang.</p>
+            <a href="#kontakt" class="btn btn--aksent btn--liten">Book time</a>
+          </div>
+
+          <div class="pris-kort fade-inn fade-inn-forsinkelse-3">
+            <div class="pris-kort__ikon">🔄</div>
+            <h3>Fast hjelp</h3>
+            <div class="pris-beloep"><sup>kr </sup>199<small style="font-size:1rem">/mnd</small></div>
+            <p class="pris-kort__beskriv">Ring eller send melding når noe er vanskelig. Alltid noen å spørre.</p>
+            <a href="#kontakt" class="btn btn--sekundar btn--liten">Kom i gang</a>
+          </div>
+
+          <div class="pris-kort fade-inn fade-inn-forsinkelse-4">
+            <div class="pris-kort__ikon">🌐</div>
+            <h3>Nettside for bedrift</h3>
+            <div class="pris-beloep"><sup>fra kr </sup>3000</div>
+            <p class="pris-kort__beskriv">Enkel og profesjonell nettside som hjelper deg å få flere kunder.</p>
+            <a href="#kontakt" class="btn btn--sekundar btn--liten">Få tilbud</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIK VIRKER DET -->
+    <section style="background: var(--lys-graa);" aria-labelledby="steg-tittel">
+      <div class="container">
+        <div class="seksjon-tittel fade-inn">
+          <span class="merkelapp">Slik virker det</span>
+          <h2 id="steg-tittel">Enkelt fra start til slutt</h2>
+          <p>Tre enkle steg – og du er i gang.</p>
+        </div>
+
+        <div class="steg-grid">
+          <div class="steg-kort fade-inn fade-inn-forsinkelse-1">
+            <div class="steg-nummer" aria-hidden="true">1</div>
+            <h3>Ta kontakt</h3>
+            <p>Ring, send melding eller fyll ut skjemaet. Jeg svarer raskt og er alltid hyggelig.</p>
+          </div>
+          <div class="steg-kort fade-inn fade-inn-forsinkelse-2">
+            <div class="steg-nummer" aria-hidden="true">2</div>
+            <h3>Vi avtaler tid</h3>
+            <p>Vi finner en tid som passer deg. Jeg kommer hjem til deg – eller vi kan møtes.</p>
+          </div>
+          <div class="steg-kort fade-inn fade-inn-forsinkelse-3">
+            <div class="steg-nummer" aria-hidden="true">3</div>
+            <h3>Du mestrer det!</h3>
+            <p>Etter besøket kan du det selv. Og har du spørsmål etterpå, er jeg bare en melding unna.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAMILIE -->
+    <section class="familie" aria-labelledby="familie-tittel">
+      <div class="container">
+        <div class="familie__grid">
+          <div class="fade-inn">
+            <span class="merkelapp" style="background:rgba(255,255,255,0.2);color:white">For familien</span>
+            <h2 id="familie-tittel">Gi foreldrene dine den hjelpen de fortjener</h2>
+            <p>Mange eldre vil gjerne bruke mobil og nettbank, men synes det er vanskelig. Jeg forklarer alt i et rolig tempo – uten stress og uten vanskelige ord.</p>
+            <ul class="familie__liste">
+              <li>Hjemmebesøk i Bergen og omegn</li>
+              <li>Tålmodig og hyggelig forklaring</li>
+              <li>Vi gjentar så mange ganger som trengs</li>
+              <li>De lærer å klare seg selv etterpå</li>
+            </ul>
+            <a href="#kontakt" class="btn" style="background:white;color:var(--blaa-mork)">Book besøk for foreldre</a>
+          </div>
+          <div class="familie__visuell fade-inn fade-inn-forsinkelse-2">
+            <span class="stor-ikon">👵📱</span>
+            <p>«Endelig kan jeg Vipse barnebarna mine og betale regningene selv. Takk for tålmodigheten!»</p>
+            <p style="margin-top:16px;font-size:0.9rem;opacity:0.7;font-style:normal">— Hjemmebesøk i Bergen</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section class="kontakt" id="kontakt" aria-labelledby="kontakt-tittel">
+      <div class="container">
+        <div class="seksjon-tittel fade-inn">
+          <span class="merkelapp">Kontakt</span>
+          <h2 id="kontakt-tittel">Ta kontakt – det er enkelt!</h2>
+          <p>Ikke nøl. Jeg svarer raskt og er alltid hyggelig.</p>
+        </div>
+
+        <div class="kontakt__grid">
+          <div class="fade-inn">
+            <h2 style="font-size:1.6rem;margin-bottom:16px">La oss prate</h2>
+            <p style="color:var(--graa);margin-bottom:32px">Du kan ringe, sende melding, eller fylle ut skjemaet. Jeg er basert i Bergen og tar gjerne et møte hjemme hos deg.</p>
+
+            <div class="kontakt__detaljer">
+              <div class="kontakt__detalj">
+                <div class="kontakt__detalj-ikon">📞</div>
+                <div>
+                  <strong>Telefon</strong>
+                  <span>+47 XXX XX XXX</span>
+                </div>
+              </div>
+              <div class="kontakt__detalj">
+                <div class="kontakt__detalj-ikon">📧</div>
+                <div>
+                  <strong>E-post</strong>
+                  <span>hei@enkeltfordeg.no</span>
+                </div>
+              </div>
+              <div class="kontakt__detalj">
+                <div class="kontakt__detalj-ikon">📍</div>
+                <div>
+                  <strong>Sted</strong>
+                  <span>Bergen, Norge</span>
+                </div>
+              </div>
+              <div class="kontakt__detalj">
+                <div class="kontakt__detalj-ikon">🕐</div>
+                <div>
+                  <strong>Åpningstider</strong>
+                  <span>Man–lør, 08:00–20:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="kontakt__skjema-boks fade-inn fade-inn-forsinkelse-2">
+            <h3>Send meg en melding</h3>
+            <form action="https://formspree.io/f/xaqaeyla" method="POST" class="kontakt__skjema">
+              <input type="hidden" name="_subject" value="Ny melding fra enkeltfordeg.no">
+              <div class="skjema-gruppe">
+                <label for="navn">Ditt navn</label>
+                <input type="text" id="navn" name="navn" placeholder="Ola Nordmann" autocomplete="name" required>
+              </div>
+              <div class="skjema-gruppe">
+                <label for="epost">E-postadresse</label>
+                <input type="email" id="epost" name="email" placeholder="ola@epost.no" autocomplete="email" required>
+              </div>
+              <div class="skjema-gruppe">
+                <label for="hva">Hva trenger du hjelp med?</label>
+                <select id="hva" name="hva">
+                  <option value="">Velg en kategori...</option>
+                  <option>Hjelp med mobil</option>
+                  <option>BankID / nettbank</option>
+                  <option>Apper (Vipps, Ruter osv.)</option>
+                  <option>Nettside for bedrift</option>
+                  <option>Annet</option>
+                </select>
+              </div>
+              <div class="skjema-gruppe">
+                <label for="melding">Din melding</label>
+                <textarea id="melding" name="melding" placeholder="Fortell litt om hva du trenger hjelp til – jeg svarer innen én dag." required></textarea>
+              </div>
+              <button type="submit" class="btn btn--primer" style="width:100%">Send melding →</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BUNNTEKST -->
+  <footer>
+    <div class="footer__inner">
+      <div class="footer__topp">
+        <div>
+          <div class="footer__logo">Enkelt for deg</div>
+          <p>Digital hjelp for privatpersoner og bedrifter i Bergen. Enkel, vennlig og alltid forståelig.</p>
+        </div>
+        <div class="footer__kolonne">
+          <h4>Sider</h4>
+          <ul>
+            <li><a href="index.html">Hjem</a></li>
+            <li><a href="about.html">Om meg</a></li>
+            <li><a href="blog.html">Artikler</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer__kolonne">
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="tel:+47XXXXXXXX">+47 XXX XX XXX</a></li>
+            <li><a href="mailto:hei@enkeltfordeg.no">hei@enkeltfordeg.no</a></li>
+            <li><span>Bergen, Norge</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bunn">
+        <span>© 2025 Enkelt for deg – Bergen</span>
+        <span>Laget med ❤️ i Bergen</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
