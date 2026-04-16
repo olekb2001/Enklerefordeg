@@ -13,13 +13,11 @@ document.addEventListener('DOMContentLoaded', function () {
       hamburger.classList.toggle('aapen');
       mobilMeny.classList.toggle('aktiv');
 
-      // Tilgjengelighet
       const erAapen = mobilMeny.classList.contains('aktiv');
       hamburger.setAttribute('aria-expanded', erAapen);
       hamburger.setAttribute('aria-label', erAapen ? 'Lukk meny' : 'Åpne meny');
     });
 
-    // Lukk meny når en lenke trykkes
     mobilMeny.querySelectorAll('a').forEach(function (lenke) {
       lenke.addEventListener('click', function () {
         hamburger.classList.remove('aapen');
@@ -38,16 +36,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  /* ── 3. FADE-INN ANIMASJONER MED INTERSECTION OBSERVER ── */
+  /* ── 3. FADE-INN ANIMASJONER ── */
   const fadeElementer = document.querySelectorAll('.fade-inn');
 
   if ('IntersectionObserver' in window && fadeElementer.length > 0) {
-    const observerValg = {
-      root: null,
-      rootMargin: '0px 0px -60px 0px',
-      threshold: 0.1
-    };
-
     const observer = new IntersectionObserver(function (oppfoeringer) {
       oppfoeringer.forEach(function (oppfoering) {
         if (oppfoering.isIntersecting) {
@@ -55,16 +47,11 @@ document.addEventListener('DOMContentLoaded', function () {
           observer.unobserve(oppfoering.target);
         }
       });
-    }, observerValg);
+    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
 
-    fadeElementer.forEach(function (el) {
-      observer.observe(el);
-    });
+    fadeElementer.forEach(function (el) { observer.observe(el); });
   } else {
-    // Fallback for eldre nettlesere
-    fadeElementer.forEach(function (el) {
-      el.classList.add('synlig');
-    });
+    fadeElementer.forEach(function (el) { el.classList.add('synlig'); });
   }
 
   /* ── 4. JEVN SKROLLING FOR ANKERLENKER ── */
@@ -80,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* ── 5. KONTAKTSKJEMA (enkel validering) ── */
+  /* ── 5. KONTAKTSKJEMA – sender til Formspree via fetch ── */
   const skjema = document.querySelector('.kontakt__skjema');
   if (skjema) {
     skjema.addEventListener('submit', function (e) {
@@ -89,24 +76,45 @@ document.addEventListener('DOMContentLoaded', function () {
       const navn = skjema.querySelector('#navn')?.value.trim();
       const epost = skjema.querySelector('#epost')?.value.trim();
       const melding = skjema.querySelector('#melding')?.value.trim();
+      const knapp = skjema.querySelector('button[type="submit"]');
 
       if (!navn || !epost || !melding) {
-        visVarsel(skjema, 'Vennligst fyll ut alle feltene.', 'feil');
+        visVarsel('Vennligst fyll ut alle feltene.', 'feil');
         return;
       }
-
       if (!epost.includes('@') || !epost.includes('.')) {
-        visVarsel(skjema, 'Sjekk at e-postadressen er riktig skrevet.', 'feil');
+        visVarsel('Sjekk at e-postadressen er riktig skrevet.', 'feil');
         return;
       }
 
-      // Simulert innsending (bytt ut med ekte backend / Formspree e.l.)
-      visVarsel(skjema, '✅ Takk! Vi tar kontakt med deg snart.', 'suksess');
-      skjema.reset();
+      knapp.disabled = true;
+      knapp.textContent = 'Sender...';
+
+      fetch(skjema.action, {
+        method: 'POST',
+        body: new FormData(skjema),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function (res) {
+        if (res.ok) {
+          visVarsel('Takk! Jeg svarer deg så snart som mulig.', 'suksess');
+          skjema.reset();
+        } else {
+          visVarsel('Noe gikk galt. Prøv igjen eller ring meg direkte.', 'feil');
+        }
+      })
+      .catch(function () {
+        visVarsel('Noe gikk galt. Prøv igjen eller ring meg direkte.', 'feil');
+      })
+      .finally(function () {
+        knapp.disabled = false;
+        knapp.textContent = 'Send melding →';
+      });
     });
   }
 
-  function visVarsel(skjema, tekst, type) {
+  function visVarsel(tekst, type) {
+    const skjema = document.querySelector('.kontakt__skjema');
     let varsel = skjema.querySelector('.varsel');
     if (!varsel) {
       varsel = document.createElement('div');
@@ -114,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function () {
       skjema.appendChild(varsel);
     }
     varsel.textContent = tekst;
-    varsel.className = 'varsel varsel--' + type;
     varsel.style.cssText = 'margin-top:16px;padding:14px 20px;border-radius:10px;font-weight:600;font-size:1rem;';
     if (type === 'suksess') {
       varsel.style.background = '#E8F5F0';

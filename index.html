@@ -8,8 +8,6 @@
   <meta name="keywords" content="digital hjelp Bergen, hjelp med mobil, BankID hjelp, nettsider Bergen, hjelp til eldre teknologi" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── FORSIDE-SPESIFIKKE STILER ── */
-
     /* HERO */
     .hero {
       background: linear-gradient(160deg, var(--blaa-lys) 0%, #ffffff 60%);
@@ -45,16 +43,8 @@
       letter-spacing: 0.02em;
     }
 
-    .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      margin-bottom: 24px;
-      color: var(--mork);
-    }
-
-    .hero h1 em {
-      font-style: normal;
-      color: var(--blaa);
-    }
+    .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); margin-bottom: 24px; color: var(--mork); }
+    .hero h1 em { font-style: normal; color: var(--blaa); }
 
     .hero__ingress {
       font-size: clamp(1.05rem, 2.5vw, 1.25rem);
@@ -64,12 +54,7 @@
       line-height: 1.75;
     }
 
-    .hero__knapper {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    .hero__knapper { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
     .hero__statistikk {
       display: flex;
@@ -86,11 +71,7 @@
     /* TJENESTER */
     .tjenester { background: var(--lys-graa); }
 
-    .tjenester__grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
+    .tjenester__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 
     .tjeneste-seksjon {
       background: var(--hvit);
@@ -100,12 +81,7 @@
       box-shadow: var(--skygge);
     }
 
-    .tjeneste-seksjon__header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
+    .tjeneste-seksjon__header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
 
     .tjeneste-seksjon__ikon {
       width: 52px; height: 52px;
@@ -148,11 +124,7 @@
     .tjeneste-liste span { font-size: 0.9rem; color: var(--graa); }
 
     /* PRISER */
-    .priser__grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
+    .priser__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 
     .pris-kort {
       background: var(--hvit);
@@ -166,17 +138,9 @@
       flex-direction: column;
     }
 
-    .pris-kort:hover {
-      border-color: var(--blaa);
-      transform: translateY(-4px);
-      box-shadow: var(--skygge-hover);
-    }
+    .pris-kort:hover { border-color: var(--blaa); transform: translateY(-4px); box-shadow: var(--skygge-hover); }
 
-    .pris-kort--populaer {
-      border-color: var(--blaa);
-      background: var(--blaa);
-      color: white;
-    }
+    .pris-kort--populaer { border-color: var(--blaa); background: var(--blaa); color: white; }
 
     .populaer-merke {
       display: inline-block;
@@ -192,41 +156,16 @@
     }
 
     .pris-kort__ikon { font-size: 2.2rem; margin-bottom: 16px; }
+    .pris-kort h3 { font-size: 1.05rem; margin-bottom: 8px; font-family: 'Nunito', sans-serif; }
+    .pris-kort--populaer h3, .pris-kort--populaer .pris-kort__beskriv, .pris-kort--populaer .pris-beloep { color: white; }
 
-    .pris-kort h3 {
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-      font-family: 'Nunito', sans-serif;
-    }
-
-    .pris-kort--populaer h3,
-    .pris-kort--populaer .pris-kort__beskriv,
-    .pris-kort--populaer .pris-beloep { color: white; }
-
-    .pris-beloep {
-      font-family: 'Lora', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--blaa-mork);
-      margin: 16px 0 8px;
-    }
-
+    .pris-beloep { font-family: 'Lora', serif; font-size: 2rem; font-weight: 700; color: var(--blaa-mork); margin: 16px 0 8px; }
     .pris-beloep sup { font-size: 1rem; }
 
-    .pris-kort__beskriv {
-      color: var(--graa);
-      font-size: 0.9rem;
-      margin-bottom: 24px;
-      flex-grow: 1;
-    }
+    .pris-kort__beskriv { color: var(--graa); font-size: 0.9rem; margin-bottom: 24px; flex-grow: 1; }
 
     /* SLIK VIRKER DET */
-    .steg-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      position: relative;
-    }
+    .steg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; position: relative; }
 
     .steg-grid::before {
       content: '';
@@ -257,17 +196,9 @@
     .steg-kort p { color: var(--graa); }
 
     /* FAMILIE */
-    .familie {
-      background: var(--blaa);
-      color: white;
-    }
+    .familie { background: var(--blaa); color: white; }
 
-    .familie__grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
+    .familie__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 
     .familie h2 { color: white; margin-bottom: 20px; }
     .familie p { color: rgba(255,255,255,0.8); font-size: 1.1rem; margin-bottom: 16px; }
@@ -275,11 +206,8 @@
     .familie__liste { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 28px 0 36px; }
 
     .familie__liste li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: rgba(255,255,255,0.9);
-      font-weight: 600;
+      display: flex; align-items: center; gap: 12px;
+      color: rgba(255,255,255,0.9); font-weight: 600;
     }
 
     .familie__liste li::before {
@@ -288,8 +216,7 @@
       background: rgba(255,255,255,0.2);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 14px;
-      flex-shrink: 0;
+      font-size: 14px; flex-shrink: 0;
     }
 
     .familie__visuell {
@@ -301,23 +228,12 @@
     }
 
     .familie__visuell .stor-ikon { font-size: 5rem; margin-bottom: 24px; display: block; }
-
-    .familie__visuell p {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.85);
-      font-style: italic;
-      font-family: 'Lora', serif;
-    }
+    .familie__visuell p { font-size: 1.1rem; color: rgba(255,255,255,0.85); font-style: italic; font-family: 'Lora', serif; }
 
     /* KONTAKT */
     .kontakt { background: var(--lys-graa); }
 
-    .kontakt__grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 56px;
-      align-items: start;
-    }
+    .kontakt__grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; }
 
     .kontakt__info h2 { margin-bottom: 20px; }
     .kontakt__info p { color: var(--graa); margin-bottom: 32px; }
@@ -325,9 +241,7 @@
     .kontakt__detaljer { display: flex; flex-direction: column; gap: 16px; }
 
     .kontakt__detalj {
-      display: flex;
-      align-items: center;
-      gap: 16px;
+      display: flex; align-items: center; gap: 16px;
       padding: 18px 20px;
       background: var(--hvit);
       border-radius: 12px;
@@ -339,14 +253,12 @@
       background: var(--blaa-lys);
       border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
+      font-size: 20px; flex-shrink: 0;
     }
 
     .kontakt__detalj strong { display: block; font-size: 0.85rem; color: var(--graa); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
     .kontakt__detalj span { font-size: 1.05rem; font-weight: 700; color: var(--mork); }
 
-    /* Skjema */
     .kontakt__skjema-boks {
       background: var(--hvit);
       border: 2px solid var(--kant);
@@ -360,11 +272,8 @@
     .skjema-gruppe { margin-bottom: 20px; }
 
     .skjema-gruppe label {
-      display: block;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--mork);
-      margin-bottom: 8px;
+      display: block; font-weight: 700; font-size: 0.95rem;
+      color: var(--mork); margin-bottom: 8px;
     }
 
     .skjema-gruppe input,
@@ -385,14 +294,10 @@
 
     .skjema-gruppe input:focus,
     .skjema-gruppe textarea:focus,
-    .skjema-gruppe select:focus {
-      border-color: var(--blaa);
-      background: var(--hvit);
-    }
+    .skjema-gruppe select:focus { border-color: var(--blaa); background: var(--hvit); }
 
     .skjema-gruppe textarea { resize: vertical; min-height: 120px; }
 
-    /* RESPONSIV FORSIDE */
     @media (max-width: 900px) {
       .tjenester__grid { grid-template-columns: 1fr; }
       .priser__grid { grid-template-columns: 1fr 1fr; }
@@ -410,7 +315,6 @@
 </head>
 <body>
 
-  <!-- NAVIGASJON -->
   <nav class="nav" role="navigation" aria-label="Hovedmeny">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo">
@@ -420,7 +324,6 @@
       <ul class="nav__lenker">
         <li><a href="index.html">Hjem</a></li>
         <li><a href="about.html">Om meg</a></li>
-        <li><a href="blog.html">Artikler</a></li>
         <li><a href="#kontakt" class="nav__kontakt-btn">Ta kontakt</a></li>
       </ul>
       <button class="nav__hamburger" aria-label="Åpne meny" aria-expanded="false">
@@ -431,7 +334,6 @@
       <ul>
         <li><a href="index.html">🏠 Hjem</a></li>
         <li><a href="about.html">👋 Om meg</a></li>
-        <li><a href="blog.html">📝 Artikler</a></li>
         <li><a href="#kontakt">📞 Ta kontakt</a></li>
       </ul>
     </div>
@@ -439,7 +341,6 @@
 
   <main>
 
-    <!-- HERO -->
     <section class="hero" aria-labelledby="hero-tittel">
       <div class="hero__innhold">
         <div class="hero__merke">📍 Bergen, Norge</div>
@@ -472,7 +373,6 @@
       </div>
     </section>
 
-    <!-- TJENESTER -->
     <section class="tjenester" id="tjenester" aria-labelledby="tjenester-tittel">
       <div class="container">
         <div class="seksjon-tittel fade-inn">
@@ -482,8 +382,6 @@
         </div>
 
         <div class="tjenester__grid">
-
-          <!-- PRIVATPERSON -->
           <div class="tjeneste-seksjon privat fade-inn fade-inn-forsinkelse-1">
             <div class="tjeneste-seksjon__header">
               <div class="tjeneste-seksjon__ikon">👴</div>
@@ -492,7 +390,7 @@
                 <p>Spesielt for eldre og nybegynnere</p>
               </div>
             </div>
-            <ul class="tjeneste-liste" aria-label="Tjenester for privatpersoner">
+            <ul class="tjeneste-liste">
               <li>
                 <div class="tjeneste-liste__ikon">📱</div>
                 <div>
@@ -517,7 +415,6 @@
             </ul>
           </div>
 
-          <!-- BEDRIFT -->
           <div class="tjeneste-seksjon bedrift fade-inn fade-inn-forsinkelse-2">
             <div class="tjeneste-seksjon__header">
               <div class="tjeneste-seksjon__ikon">🏪</div>
@@ -526,7 +423,7 @@
                 <p>Enkle løsninger som gir resultater</p>
               </div>
             </div>
-            <ul class="tjeneste-liste" aria-label="Tjenester for bedrifter">
+            <ul class="tjeneste-liste">
               <li>
                 <div class="tjeneste-liste__ikon">🌐</div>
                 <div>
@@ -550,12 +447,10 @@
               </li>
             </ul>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- PRISER -->
     <section id="priser" aria-labelledby="priser-tittel">
       <div class="container">
         <div class="seksjon-tittel fade-inn">
@@ -565,7 +460,6 @@
         </div>
 
         <div class="priser__grid">
-
           <div class="pris-kort fade-inn fade-inn-forsinkelse-1">
             <div class="pris-kort__ikon">📱</div>
             <h3>Kom i gang med mobil</h3>
@@ -598,12 +492,10 @@
             <p class="pris-kort__beskriv">Enkel og profesjonell nettside som hjelper deg å få flere kunder.</p>
             <a href="#kontakt" class="btn btn--sekundar btn--liten">Få tilbud</a>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- SLIK VIRKER DET -->
     <section style="background: var(--lys-graa);" aria-labelledby="steg-tittel">
       <div class="container">
         <div class="seksjon-tittel fade-inn">
@@ -632,7 +524,6 @@
       </div>
     </section>
 
-    <!-- FAMILIE -->
     <section class="familie" aria-labelledby="familie-tittel">
       <div class="container">
         <div class="familie__grid">
@@ -657,7 +548,6 @@
       </div>
     </section>
 
-    <!-- KONTAKT -->
     <section class="kontakt" id="kontakt" aria-labelledby="kontakt-tittel">
       <div class="container">
         <div class="seksjon-tittel fade-inn">
@@ -706,14 +596,14 @@
           <div class="kontakt__skjema-boks fade-inn fade-inn-forsinkelse-2">
             <h3>Send meg en melding</h3>
             <form action="https://formspree.io/f/xaqaeyla" method="POST" class="kontakt__skjema">
-              <input type="hidden" name="_subject" value="Ny melding fra enkeltfordeg.no">
+              <input type="hidden" name="_subject" value="Ny melding fra enkeltfordeg.no" />
               <div class="skjema-gruppe">
                 <label for="navn">Ditt navn</label>
-                <input type="text" id="navn" name="navn" placeholder="Ola Nordmann" autocomplete="name" required>
+                <input type="text" id="navn" name="navn" placeholder="Ola Nordmann" autocomplete="name" required />
               </div>
               <div class="skjema-gruppe">
                 <label for="epost">E-postadresse</label>
-                <input type="email" id="epost" name="email" placeholder="ola@epost.no" autocomplete="email" required>
+                <input type="email" id="epost" name="email" placeholder="ola@epost.no" autocomplete="email" required />
               </div>
               <div class="skjema-gruppe">
                 <label for="hva">Hva trenger du hjelp med?</label>
@@ -739,7 +629,6 @@
 
   </main>
 
-  <!-- BUNNTEKST -->
   <footer>
     <div class="footer__inner">
       <div class="footer__topp">
@@ -752,7 +641,6 @@
           <ul>
             <li><a href="index.html">Hjem</a></li>
             <li><a href="about.html">Om meg</a></li>
-            <li><a href="blog.html">Artikler</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
           </ul>
         </div>
