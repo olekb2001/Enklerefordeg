@@ -3,219 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Om meg – Enkelt for deg | Bergen</title>
-    <meta
-      name="description"
-      content="Hei! Jeg er en 24 år gammel bergenser som hjelper eldre og nybegynnere med mobil, apper og digital hverdag – rolig og tålmodig."
-    />
+    <title>Om meg | Digital hjelp i Bergen – Enkelt for deg</title>
+    <meta name="description" content= "Digital hjelp i Bergen for eldre og nybegynnere. Jeg hjelper deg med mobil, apper og nettbank – rolig og tålmodig, hjemme hos deg."/>
+    <link rel="canonical" href="https://enkeltfordeg.no/about.html" />
     <link rel="stylesheet" href="style.css" />
-    <style>
-      /* ── OM MEG – SPESIFIKKE STILER ── */
-
-      .om-hero {
-        background: linear-gradient(160deg, var(--blaa-lys) 0%, #ffffff 70%);
-        padding: 80px 24px;
-      }
-
-      .om-hero__grid {
-        max-width: 1100px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1.4fr;
-        gap: 64px;
-        align-items: center;
-      }
-      .profil-sirkel img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-      }
-
-      .om-hero__bilde {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .profil-sirkel {
-        width: 220px;
-        height: 220px;
-        border-radius: 50%;
-        background: linear-gradient(
-          135deg,
-          var(--blaa) 0%,
-          var(--blaa-mork) 100%
-        );
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 6rem;
-        box-shadow: 0 8px 48px rgba(26, 107, 74, 0.3);
-        border: 6px solid white;
-        object-fit: cover;
-      }
-
-      .profil-merker {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        justify-content: center;
-      }
-
-      .profil-merke {
-        background: var(--hvit);
-        border: 2px solid var(--kant);
-        border-radius: 999px;
-        padding: 6px 14px;
-        font-size: 0.85rem;
-        font-weight: 700;
-        color: var(--blaa-mork);
-        box-shadow: var(--skygge);
-      }
-
-      .om-hero__tekst .merkelapp {
-        margin-bottom: 16px;
-      }
-      .om-hero__tekst h1 {
-        margin-bottom: 20px;
-      }
-      .om-hero__tekst p {
-        color: var(--graa);
-        font-size: 1.1rem;
-        margin-bottom: 16px;
-      }
-
-      .om-hero__knapper {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-        margin-top: 32px;
-      }
-
-      /* VERDIER */
-      .verdier {
-        background: var(--lys-graa);
-      }
-
-      .verdier__grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-      }
-
-      /* BAKGRUNN */
-      .bakgrunn__innhold {
-        max-width: 760px;
-        margin: 0 auto;
-      }
-
-      .bakgrunn__innhold h2 {
-        margin-bottom: 28px;
-      }
-
-      .tidslinje {
-        position: relative;
-        padding-left: 36px;
-        border-left: 3px solid var(--blaa-mid);
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-      }
-
-      .tidslinje__element {
-        position: relative;
-      }
-
-      .tidslinje__element::before {
-        content: "";
-        position: absolute;
-        left: -43px;
-        top: 6px;
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: var(--blaa);
-        border: 3px solid white;
-        box-shadow: 0 0 0 3px var(--blaa-mid);
-      }
-
-      .tidslinje__aar {
-        font-size: 0.85rem;
-        font-weight: 800;
-        color: var(--blaa);
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        margin-bottom: 6px;
-      }
-
-      .tidslinje__element h3 {
-        margin-bottom: 8px;
-        font-size: 1.15rem;
-      }
-      .tidslinje__element p {
-        color: var(--graa);
-        margin: 0;
-      }
-
-      /* KONTAKT-SNARVEI */
-      .kontakt-snarvei {
-        background: var(--blaa);
-        padding: 80px 24px;
-        text-align: center;
-      }
-
-      .kontakt-snarvei h2 {
-        color: white;
-        margin-bottom: 16px;
-      }
-      .kontakt-snarvei p {
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 1.1rem;
-        margin-bottom: 36px;
-      }
-
-      /* RESPONSIV */
-      @media (max-width: 768px) {
-        .om-hero__grid {
-          grid-template-columns: 1fr;
-          gap: 40px;
-          text-align: center;
-        }
-        .om-hero__tekst .merkelapp {
-          display: inline-block;
-        }
-        .om-hero__knapper {
-          justify-content: center;
-        }
-        .verdier__grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
   </head>
   <body>
+
     <!-- NAVIGASJON -->
     <nav class="nav" role="navigation" aria-label="Hovedmeny">
       <div class="nav__inner">
         <a href="index.html" class="nav__logo">
-          <span aria-hidden="true">E</span>
-          Enkelt for deg
+          <img src="logo.png" alt="Enkelt for deg logo" />
         </a>
         <ul class="nav__lenker">
           <li><a href="index.html">Hjem</a></li>
-          <li><a href="about.html">Om meg</a></li>
-
-          <li>
-            <a href="index.html#kontakt" class="nav__kontakt-btn">Ta kontakt</a>
-          </li>
+          <li><a href="about.html" class="aktiv">Om meg</a></li>
+          <li><a href="index.html#kontakt" class="nav__kontakt-btn">Ta kontakt</a></li>
         </ul>
-        <button
-          class="nav__hamburger"
-          aria-label="Åpne meny"
-          aria-expanded="false"
-        >
+        <button class="nav__hamburger" aria-label="Åpne meny" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
@@ -223,13 +29,13 @@
         <ul>
           <li><a href="index.html">🏠 Hjem</a></li>
           <li><a href="about.html">👋 Om meg</a></li>
-
           <li><a href="index.html#kontakt">📞 Ta kontakt</a></li>
         </ul>
       </div>
     </nav>
 
     <main>
+
       <!-- OM MEG HERO -->
       <section class="om-hero" aria-labelledby="om-tittel">
         <div class="om-hero__grid">
@@ -246,25 +52,12 @@
 
           <div class="om-hero__tekst fade-inn fade-inn-forsinkelse-1">
             <span class="merkelapp">Hei, hyggelig å møte deg 👋</span>
-            <h1 id="om-tittel">
-              Jeg er her for å gjøre teknologi enkelt for deg
-            </h1>
-            <p>
-              Jeg er 24 år og bor i Bergen. Jeg har hjulpet mange med mobil,
-              apper og BankID – spesielt de som synes teknologi er vanskelig.
-            </p>
-            <p>
-              Hos meg finnes det ingen dumme spørsmål. Jeg forklarer alt rolig
-              og enkelt, steg for steg – og vi gjentar så mange ganger som
-              trengs.
-            </p>
+            <h1 id="om-tittel">Jeg er her for å gjøre teknologi enkelt for deg</h1>
+            <p>Jeg er 24 år og bor i Bergen. Jeg har hjulpet mange med mobil, apper og innlogging – spesielt de som synes teknologi er vanskelig.</p>
+            <p>Hos meg finnes det ingen dumme spørsmål. Jeg forklarer alt rolig og enkelt, steg for steg – og vi gjentar så mange ganger som trengs.</p>
             <div class="om-hero__knapper">
-              <a href="index.html#kontakt" class="btn btn--primer"
-                >Ta kontakt</a
-              >
-              <a href="index.html#priser" class="btn btn--sekundar"
-                >Se priser</a
-              >
+              <a href="index.html#kontakt" class="btn btn--primer">Ta kontakt</a>
+              <a href="index.html#priser" class="btn btn--sekundar">Se priser</a>
             </div>
           </div>
         </div>
@@ -283,28 +76,17 @@
             <div class="kort fade-inn fade-inn-forsinkelse-1">
               <div class="kort__ikon">🎯</div>
               <h3>Enkelt er best</h3>
-              <p>
-                Jeg unngår vanskelige ord og forklaringer. Alt skal være
-                forståelig for alle – uansett hvor mye erfaring du har med
-                teknologi.
-              </p>
+              <p>Jeg unngår vanskelige ord og forklaringer. Alt skal være forståelig for alle – uansett hvor mye erfaring du har med teknologi.</p>
             </div>
             <div class="kort fade-inn fade-inn-forsinkelse-2">
               <div class="kort__ikon">🤝</div>
               <h3>Tålmodighet alltid</h3>
-              <p>
-                Jeg er aldri stresset og tar aldri betalt for spørsmål. Har du
-                spurt meg om det samme ti ganger – er det bare fint! Jeg
-                forklarer gjerne én gang til.
-              </p>
+              <p>Jeg er aldri stresset og tar aldri betalt for spørsmål. Har du spurt meg om det samme ti ganger – er det bare fint! Jeg forklarer gjerne én gang til.</p>
             </div>
             <div class="kort fade-inn fade-inn-forsinkelse-3">
               <div class="kort__ikon">💪</div>
               <h3>Du skal mestre det selv</h3>
-              <p>
-                Målet er ikke at du skal trenge meg for alltid. Målet er at du
-                etter hvert kan klare deg på egenhånd – og føle mestring.
-              </p>
+              <p>Målet er ikke at du skal trenge meg for alltid. Målet er at du etter hvert kan klare deg på egenhånd – og føle mestring.</p>
             </div>
           </div>
         </div>
@@ -314,7 +96,7 @@
       <section aria-labelledby="bakgrunn-tittel">
         <div class="container">
           <div class="bakgrunn__innhold">
-            <div class="seksjon-tittel fade-inn" style="text-align: left">
+            <div class="seksjon-tittel bakgrunn__tittel fade-inn">
               <span class="merkelapp">Bakgrunn</span>
               <h2 id="bakgrunn-tittel">Veien hit</h2>
             </div>
@@ -323,38 +105,22 @@
               <div class="tidslinje__element fade-inn">
                 <div class="tidslinje__aar">Oppvekst</div>
                 <h3>Alltid interessert i teknologi</h3>
-                <p>
-                  Vokste opp i Bergen med stor interesse for datamaskiner og
-                  teknologi. Jeg hjalp alltid naboen og familien med
-                  PC-problemer – og likte det!
-                </p>
+                <p>Vokste opp i Bergen med stor interesse for datamaskiner og teknologi. Jeg hjalp alltid naboen og familien med PC-problemer – og likte det!</p>
               </div>
               <div class="tidslinje__element fade-inn fade-inn-forsinkelse-1">
                 <div class="tidslinje__aar">Studietid</div>
                 <h3>Lærte om teknologi og digitale verktøy</h3>
-                <p>
-                  Fordypet meg i hvordan teknologi fungerer og hvordan man kan
-                  gjøre det enkelt og tilgjengelig for alle – uansett alder
-                  eller erfaring.
-                </p>
+                <p>Fordypet meg i hvordan teknologi fungerer og hvordan man kan gjøre det enkelt og tilgjengelig for alle – uansett alder eller erfaring.</p>
               </div>
               <div class="tidslinje__element fade-inn fade-inn-forsinkelse-2">
                 <div class="tidslinje__aar">I dag</div>
                 <h3>Hjelper eldre i Bergen</h3>
-                <p>
-                  Nå jobber jeg under navnet «Enkelt for deg» og tilbyr
-                  hjemmebesøk i Bergen, der jeg hjelper privatpersoner –
-                  spesielt eldre – med mobil, apper og digital hverdag.
-                </p>
+                <p>Nå jobber jeg under navnet «Enkelt for deg» og tilbyr hjemmebesøk i Bergen, der jeg hjelper privatpersoner – spesielt eldre – med mobil, apper og digital hverdag.</p>
               </div>
               <div class="tidslinje__element fade-inn fade-inn-forsinkelse-3">
                 <div class="tidslinje__aar">Fremover</div>
                 <h3>Enda mer hjelp til folk i Bergen</h3>
-                <p>
-                  Drømmen er å hjelpe enda flere bergensere med å mestre den
-                  digitale hverdagen – og gjøre det enkelt og trygt for alle,
-                  uansett alder.
-                </p>
+                <p>Drømmen er å hjelpe enda flere bergensere med å mestre den digitale hverdagen – og gjøre det enkelt og trygt for alle, uansett alder.</p>
               </div>
             </div>
           </div>
@@ -365,33 +131,14 @@
       <section class="kontakt-snarvei" aria-labelledby="kontakt-snarvei-tittel">
         <div class="fade-inn">
           <h2 id="kontakt-snarvei-tittel">Klar for å komme i gang?</h2>
-          <p>
-            Jeg svarer alltid innen én dag. Ring eller send melding – det er
-            helt uforpliktende.
-          </p>
-          <div
-            style="
-              display: flex;
-              gap: 16px;
-              justify-content: center;
-              flex-wrap: wrap;
-            "
-          >
-            <a
-              href="index.html#kontakt"
-              class="btn"
-              style="background: white; color: var(--blaa-mork)"
-              >Send melding</a
-            >
-            <a
-              href="tel:+4741348359"
-              class="btn btn--sekundar"
-              style="border-color: rgba(255, 255, 255, 0.5); color: white"
-              >Ring meg</a
-            >
+          <p>Jeg svarer alltid innen én dag. Ring eller send melding – det er helt uforpliktende.</p>
+          <div class="kontakt-snarvei__knapper">
+            <a href="index.html#kontakt" class="btn btn--kvit">Send melding</a>
+            <a href="tel:+4741348359" class="btn btn--kvit-ramme">Ring meg</a>
           </div>
         </div>
       </section>
+
     </main>
 
     <!-- BUNNTEKST -->
@@ -400,29 +147,21 @@
         <div class="footer__topp">
           <div>
             <div class="footer__logo">Enkelt for deg</div>
-            <p>
-              Digital hjelp for eldre og nybegynnere i Bergen. Rolig, tålmodig
-              og alltid forståelig.
-            </p>
+            <p>Digital hjelp for eldre og nybegynnere i Bergen. Rolig, tålmodig og alltid forståelig.</p>
           </div>
           <div class="footer__kolonne">
             <h4>Sider</h4>
             <ul>
               <li><a href="index.html">Hjem</a></li>
               <li><a href="about.html">Om meg</a></li>
-
               <li><a href="index.html#kontakt">Kontakt</a></li>
             </ul>
           </div>
           <div class="footer__kolonne">
             <h4>Kontakt</h4>
             <ul>
-              <li><a href="tel:+4741348359">+47 41348359</a></li>
-              <li>
-                <a href="mailto:enkeldigital@gmail.com"
-                  >enkeldigital@gmail.com</a
-                >
-              </li>
+              <li><a href="tel:+4741348359">+47 413 48 359</a></li>
+              <li><a href="mailto:enkeldigital@gmail.com">enkeldigital@gmail.com</a></li>
               <li><span>Bergen, Norge</span></li>
             </ul>
           </div>
