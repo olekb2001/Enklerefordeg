@@ -209,7 +209,7 @@ section { padding: 80px 0; }
 
 /* ── PRISER ── */
 .priser__grid {
-  display: grid; grid-template-columns: repeat(2, 1fr);
+  display: grid; grid-template-columns: 1fr;
   gap: 32px; max-width: 780px; margin: 0 auto;
 }
 .pris-kort {
